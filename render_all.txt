@@ -1,0 +1,56 @@
+ ReactDOM.render(<h1>BSU Computer Science</h1>, document.getElementById("root"));
+ <!-- 2nd  -->
+	const name = 'nazmul'
+	const element1 = <h2>Hello {name}</h2>
+	ReactDOM.render(element1, document.getElementById("content"));
+
+ <!--3rd-->
+	function getFullName(user){
+	  return user.firstName +' ' + user.lastName;
+	}
+
+	const user = {firstName: 'Md nazmul',
+				 lastName: 'Karim'};
+	const element2 = (<h1>
+		 Hello {getFullName(user)}
+	  </h1>);
+
+	ReactDOM.render(element2, document.getElementById("content2"));
+
+	<!--4th-->
+	function getGreeting(user) {
+	  if (user) {
+		return <h1>Hello, {getFullName(user)}!</h1>;
+	  }
+	  return <h1>Hello, Stranger.</h1>;
+	}
+
+	const element3 = getGreeting();
+
+	ReactDOM.render(element3, document.getElementById("content3"));
+
+	<!--   5th nested content-->
+	const element5 = (
+	  <div>
+		<h1>Hello!</h1>
+		<h2>Good to see you here.</h2>
+	  </div>
+	);
+	<!--   6th Specifying attribute-->
+	const element6 = <img src={user.avatarUrl}></img>;
+
+	<!-- 7th prevent XSS and Sql injection attack-->
+	const title = response.potentiallyMaliciousInput
+	// This is safe:
+	const element = <h1>{title}</h1>;
+
+	<!-- the following 2 elements are identical-->
+	const element7 = (<h1 className="greetings">
+	  Good Morning!
+	  </h1>);
+
+	const element7_2 = React.createElement(
+	  'h1',
+	  {className: 'greetings'},
+	  'Good Morning!'
+	);
